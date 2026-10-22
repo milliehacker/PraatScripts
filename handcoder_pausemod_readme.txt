@@ -35,3 +35,5 @@ As I've written it, any interval occupied by {br} (breath) counts as a pause. If
 IMPORTANT DISCLAIMER: Because this method is based on the duration of textgrid intervals, the accuracy of pause identification is entirely dependent on the accuracy of your alignment. You will get false positives if you have blank intervals concurrent with speech, and you will get false negatives if you have annotated intervals concurrent with silence.
 
 ------------------------------------------------------------------
+
+Please feel free to reach out to me with any questions at hackermi (at) msu (dot) edu
