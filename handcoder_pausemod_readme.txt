@@ -4,9 +4,17 @@ General Handcoder info:
 
 The Praat Handcoder is a flexible Praat script used for manual coding of phonetic data given a pre-existing textgrid and audio file.
 
-Running the Handcoder generates a form where you build a query of the type of data you’re looking for. You simply tell the Handcoder the segments (or sequences of segments) you want, and the contexts you’re looking for them in. For example, your query could be “Show me all the IH0 NG and L IY0 at the end of words, but skip ones that are preceded by T or D.”
+Running the Handcoder generates a form where you build a query of the type of data you’re looking for. You simply tell the Handcoder the segments (or sequences of segments) you want, and the contexts you’re looking for them in.
+
+For example, your query could be “Show me all the IH0 NG and L IY0 at the end of words, but skip ones that are preceded by T or D.”
 
 Note that phonetic representations of words and segments must in ARPABET, not IPA, because the Handcoder is designed to operate on MFA-aligned textgrids.
+
+The Handcoder then takes you to each part of your textgrid that matches your query, plays the corresponding audio, and invites you to enter codes based on what you heard.
+
+Your codes, as well as info about the token's context, are written to a tsv-formatted text file.
+
+See comments in HandCoderPauseMod.praat for more info.
 
 The original version of the Praat handcoder by Joe Fruehwald can be found here: https://github.com/JoFrhwld/FAAV/blob/master/praat/handCoder.praat
 
