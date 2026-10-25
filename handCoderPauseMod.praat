@@ -15,7 +15,7 @@
 ##    Copyright 2011, Josef Fruehwald
 ##	  Additions by Jordan Kodner, 2012
 ##	  Style coding by Meredith Tamminga, 2013
-##    Pre-pausal option by Millie Hacker, 2026
+##    Pre-pausal option and window setting change by Millie Hacker, 2026
 ###########################################################
 
 ######################################################################################################	
@@ -83,13 +83,13 @@ form Search Settings
 			option Start of word
 			option Word internal
 			option End of word
-			option Internal or End of word
 			option Internal or Start of word
+			option Internal or End of word
 			option Start or End of word
 			option All contexts
 				#I've tried doing this with booleans (checkboxes) rather than a dropdown, but it takes up too much vertical space and Praat doesn't have an easy way to adjust that.
 
-		sentence Pause_Threshold 0.2
+		sentence Pause_Threshold 0.1
 			#where user sets desired pause threshold
 
 	comment Search Context
@@ -106,7 +106,7 @@ form Search Settings
 		sentence Stop_Words
 
 	comment Extra Settings
-		positive Window_Size 2
+		positive Window_Buffer 0.5
 		sentence Default_Code1
 		sentence Default_Code2
 		real Start_Time 0 
@@ -125,17 +125,17 @@ if context == 1
 	end_Of_Word = 1
 	pause_Setting = 1
 elsif context == 2
-	end_Of_Word = 1
-elsif context == 3
 	start_Of_Word = 1
-elsif context == 4
+elsif context == 3
 	word_Internal = 1
+elsif context == 4
+	end_Of_Word = 1
 elsif context == 5
 	word_Internal = 1
-	end_Of_Word = 1
+	start_Of_Word = 1
 elsif context == 6
 	word_Internal = 1
-	start_Of_Word = 1
+	end_Of_Word = 1
 elsif context == 7
 	start_Of_Word = 1
 	end_Of_Word = 1
@@ -453,10 +453,10 @@ endif
 ###############################################
 
 						if condition_met == 1
-							window_Start = Get start point... 1 max(1,int - window_Size)
-							window_End = Get end point... 1 min(int + window_Size, word_Intervals)
+							window_Start = word_Start - window_Buffer
+							window_End = word_End + window_Buffer
 							window_Dur = window_End - window_Start
-								#sets the window size by taking the range of current interval and building a buffer on each side corresponding to the user-set window_Size specification
+								#sets the window size by taking the range of current interval and building a buffer on each side corresponding to the user-set window_Buffer specification
 
 							firstPhInt = Get interval at time... 2 window_Start+0.005
 							lastPhInt = Get interval at time... 2 window_End-0.005
