@@ -18,6 +18,6 @@ As I've written it, any interval occupied by {br} (breath) counts as a pause. If
 
 DISCLAIMER: Because this method is based on the duration of textgrid intervals, the accuracy of pause identification is entirely dependent on the accuracy of your alignment. You will get false positives if you have blank intervals concurrent with speech, and you will get false negatives if you have annotated intervals concurrent with silence.
 
-Unrelatedly, I've changed the window size setting from INTERVALS-BASED to SECONDS-BASED. This means when you enter a number into the Window Buffer box in the start menu, you're telling the script how many seconds of buffer you want on either side of the token, rather than how many words. I find that a fixed buffer makes handcoding more comfortable because it avoids windows that are excessively wide due to long pauses adjacent to the token, as well as windows that are too narrow due to very short adjacent words.
+Unrelatedly, I've changed the window size setting from INTERVALS-BASED to SECONDS-BASED. This means when you enter a number into the Window Buffer box in the start menu, you're telling the script how many seconds of buffer you want on either side of the token, rather than how many word intervals. I find that a fixed buffer makes handcoding more comfortable because it avoids windows that are excessively wide due to long pauses adjacent to the token, as well as windows that are too narrow due to very short adjacent words.
 
 Please feel free to contact me with any questions or comments at hackermi (at) msu (dot) edu.
